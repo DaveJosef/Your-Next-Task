@@ -20,9 +20,9 @@
     "incremental": true,
     "paths": {
       "@/*": ["./*"],
-      "@/pages/*": ["pages/*"],
-      "@/Components/*": ["Components/*"],
-      "@/global/*": ["global/*"]
+      "@/pages/*": ["./pages/*"],
+      "@/Components/*": ["./Components/*"],
+      "@/global/*": ["./global/*"]
     }
   },
   "include": [

@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
-import TaskForm from '@/Components/TaskForm/TaskForm';
-import TaskList from '@/Components/TaskList/TaskList';
 import Main from './Main';
 
 export default function Home() {
