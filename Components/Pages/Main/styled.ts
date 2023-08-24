@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    background-color: ${(props) => props.theme.COLORS.NEUTRALS.Background};
+    background: transparent;
 `;
 
 export const Header = styled.header`

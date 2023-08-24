@@ -4,7 +4,7 @@ export const ResetCSS = createGlobalStyle`
     * {
         padding: 0;
         margin: 0;
-        box-sizing: content-box;
+        box-sizing: border-box;
         border: none;
     }
 `;

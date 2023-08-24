@@ -6,6 +6,7 @@ import { ResetCSS } from '@/global/ResetCSS';
 import * as Themes from '@/global/Themes';
 import * as S from './styled';
 import AddPane from '@/Components/AddPane/AddPane';
+import Background from '@/Components/Background/Background';
 
 export default function Main() {
   return (
@@ -13,6 +14,7 @@ export default function Main() {
       <ThemeProvider theme={Themes}>
         <ResetCSS />
         <S.PageContainer>
+          <Background />
           <S.Header>
             <AddPane />
           </S.Header>
