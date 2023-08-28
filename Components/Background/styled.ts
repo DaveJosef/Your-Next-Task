@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import bg from '@/assets/background/bg.png';
 
 export const Background = styled.div`
+    z-index: -999;
     width: 100%;
     height: 100%;
     position: fixed;
