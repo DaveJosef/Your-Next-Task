@@ -21,6 +21,11 @@ export const Header = styled.header`
 `;
 
 export const Main = styled.main`
-    width: 100%;
-    // background-color: ${(props) => props.theme.COLORS.NEUTRALS.Foreground};
+    display: flex;
+    width: 360px;
+    height: 477px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 `;

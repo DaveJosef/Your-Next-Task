@@ -7,8 +7,17 @@ import * as Themes from '@/global/Themes';
 import * as S from './styled';
 import AddPane from '@/Components/AddPane/AddPane';
 import Background from '@/Components/Background/Background';
+import TodoList from '@/Components/TodoList/TodoList';
 
 export default function Main() {
+
+  const tasks = [
+      {
+          name: 'task A',
+          done: false,
+      }
+  ];
+
   return (
     <>
       <ThemeProvider theme={Themes}>
@@ -19,7 +28,7 @@ export default function Main() {
             <AddPane />
           </S.Header>
           <S.Main>
-            Main
+            <TodoList propTasks={tasks}/>
           </S.Main>
         </S.PageContainer>
       </ThemeProvider>
