@@ -1,13 +1,9 @@
 import React from 'react';
 import * as S from './styled';
 
-interface AddBtnProps {
-  onClick: React.MouseEventHandler
-};
-
-function AddBtn({ onClick }: AddBtnProps) {
+function AddBtn() {
   return (
-    <S.AddBtn onClick={onClick}>
+    <S.AddBtn>
         <p>
             + Add
         </p>

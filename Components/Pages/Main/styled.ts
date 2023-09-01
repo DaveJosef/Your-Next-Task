@@ -21,11 +21,11 @@ export const Header = styled.header`
 `;
 
 export const Main = styled.main`
+    overflow: scroll;
     display: flex;
     width: 360px;
-    height: 477px;
+    height: 75%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     flex-shrink: 0;
 `;

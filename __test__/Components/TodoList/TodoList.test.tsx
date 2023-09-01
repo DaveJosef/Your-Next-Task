@@ -1,8 +1,7 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/"
 import { ThemeProvider } from "styled-components";
 import * as Themes from '@/global/Themes';
-import TodoCard from "@/Components/TodoCard/TodoCard";
 import TodoList from "@/Components/TodoList/TodoList";
 
 const tasks = [
@@ -16,7 +15,7 @@ describe('TodoList', () => {
     it('should receive and render the tasks', () => {
         render(
             <ThemeProvider theme={Themes}>
-                <TodoList propTasks={tasks}/>
+                <TodoList onDone={() => {}} onRemove={() => {}} onUpdate={() => {}} propTasks={tasks}/>
             </ThemeProvider>
         );
         const taskName = screen.getByText(tasks[0].name);

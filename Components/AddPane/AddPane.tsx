@@ -1,13 +1,21 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import * as S from './styled';
 import AddBtn from '../AddBtn/AddBtn';
 import InputBox from '../InputBox/InputBox';
 
-function AddPane() {
+interface AddPaneProps {
+  onAdd: (name: string) => void,
+}
+
+function AddPane({ onAdd }: AddPaneProps) {
+
+  const [name, setName] = useState('');
+
   return (
-    <S.AddPane>
-      <InputBox onChange={() => {}}/>
-      <AddBtn onClick={() => {}}/>
+    <S.AddPane data-testid={'add-pane'} onSubmit={(e) => { e.preventDefault(); onAdd(name); }}>
+      <InputBox onChange={(e) => {setName((e.target as HTMLInputElement).value ? (e.target as HTMLInputElement).value : '')}}/>
+      <AddBtn/>
     </S.AddPane>
   )
 }
