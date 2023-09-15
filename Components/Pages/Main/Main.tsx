@@ -12,22 +12,25 @@ import UpdateModal from '@/Components/UpdateModal/UpdateModal';
 import DeleteModal from '@/Components/DeleteModal/DeleteModal';
 import useComponentVisible from '@/hooks/useComponentVisible';
 import ModalOverlay from '@/Components/ModalOverlay/ModalOverlay';
+import { add, markAsDone, remove, update } from '@/redux/features/task-slice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch, useAppSelector } from '@/redux/store';
 
 export default function Main() {
 
+  const tasks = useAppSelector((state) => state.taskReducer.value.tasks);
+  const dispatch = useDispatch<AppDispatch>();
+
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false, handleCloseModal);
-  const [tasks, setTasks] = useState(mock);
   const [modalType, setModalType] = useState('update');
-  const [taskId, setTaskId] = useState(-1);
+  const [selectedTaskId, setSelectedTaskId] = useState(-1);
 
   function onAdd(name: string) {
-    setTasks([...tasks, { name, done: false }]);
-    console.log(tasks)
+    dispatch(add(name));
   }
 
   function onDone(taskId: number) {
-    const newTasks = tasks.map((task, index) => index === taskId ? {...task, done: !task.done} : task);
-    setTasks(newTasks);
+    dispatch(markAsDone(taskId));
   }
 
   function handleShowModal(modalType: 'update' | 'delete') {
@@ -41,25 +44,23 @@ export default function Main() {
 
   function onUpdate(taskId: number) {
     console.log('onUpdate', modalType);
-      setTaskId(taskId);
+      setSelectedTaskId(taskId);
       handleShowModal('update');
   }
 
   function onConfirmUpdate(name: string) {
-      const newTasks = tasks.map((task, index) => index === taskId ? {...task, name: name} : task);
-      setTasks(newTasks);
+      dispatch(update({id: selectedTaskId, name}));
       handleCloseModal();
   }
 
   function onRemove(taskId: number) {
     console.log('onRemove', modalType);
-      setTaskId(taskId);
+      setSelectedTaskId(taskId);
       handleShowModal('delete');
   }
 
   function onConfirmRemove() {
-      const newTasks = tasks.filter((task, index) => index !== taskId);
-      setTasks(newTasks);
+      dispatch(remove(selectedTaskId));
       handleCloseModal();
   }
 
